@@ -1,0 +1,1 @@
+web: gunicorn server:server --worker-class aiohttp.worker.GunicornUVLoopWebWorker
