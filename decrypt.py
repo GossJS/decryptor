@@ -20,8 +20,9 @@ async def handle_post(request):
     decrypted_str = decrypted_text.decode("UTF-8").strip()
     return web.Response(text=decrypted_str)
 
-app = web.Application()
-app.add_routes(routes)
 
-if __name__ == '__main__':
-    web.run_app(app)
+
+async def application():
+    app = web.Application()
+    app.add_routes(routes)
+    return app
