@@ -1,4 +1,3 @@
-from hashlib import new
 from aiohttp import web
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
@@ -19,8 +18,6 @@ async def handle_post(request):
     decrypted_text = priv_key.decrypt(secret_file.read())
     decrypted_str = decrypted_text.decode("UTF-8").strip()
     return web.Response(text=decrypted_str)
-
-
 
 async def application():
     app = web.Application()
